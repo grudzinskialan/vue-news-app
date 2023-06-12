@@ -10,10 +10,10 @@
 <script>
 import Article from './Article.vue';
 import { useNewsStore } from '../stores/articles';
-import { onMounted } from "vue";
+import { onBeforeMount, ref } from "vue";
 
 export default {
-  name: 'articlelist',
+//   name: 'articlelist',
   components: {
     Article
   },
@@ -21,15 +21,21 @@ export default {
 //     articleList
 //   },
   setup() {
+    const articles = ref(null);
     const newsStore = useNewsStore();
-    onMounted(() => {
-      newsStore.fetchArticles();
+
+    onBeforeMount( async () => {
+
+        // newsStore.fetchArticles();
+        articles.value = await newsStore.fetchArticles().articles;
+
     })
+    // const articles = newsStore.articles; 
 
-    const articles = newsStore.articles; 
-
-
-    console.log(articles);
+    return {
+      articles,
+    //   fetchArticles,
+    };
     }
 }
 </script>

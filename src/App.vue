@@ -10,21 +10,21 @@ export default {
     AppHeader
   },
   setup() {
-    const newsStore = useNewsStore();
-    const articles = newsStore.articles; 
+    // const newsStore = useNewsStore();
+    // const articles = newsStore.articles; 
 
-    const fetchArticles = () => {
-      newsStore.fetchArticles();
-    };
+    // const fetchArticles = () => {
+    //   newsStore.fetchArticles();
+    // };
     // onMounted(() => {
     //   fetchArticles();
     // })
 
-    console.log(articles);
+    // console.log(articles);
 
     return {
-      articles,
-      fetchArticles,
+      // articles,
+      // fetchArticles,
     };
   },
 };
