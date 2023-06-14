@@ -27,7 +27,6 @@ npm run dev
 ```sh
 npm run build
 ```
-
 ### prototype
 figma link: https://www.figma.com/proto/Zt0wsw1czMvGUdVuPrIzb0/Untitled?type=design&node-id=1-2&scaling=min-zoom&page-id=0%3A1
 

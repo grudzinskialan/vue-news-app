@@ -1,32 +1,32 @@
 <template>
     <div>
-      <h2>Results for: {{ query }}</h2>
-      <ArticleList :query="query" key="search" />
+      <!-- <h2>Home</h2> -->
+      <ArticleList />
     </div>
   </template>
-  
+
   <script>
   import ArticleList from '../components/ArticleList.vue';
   import { useRoute } from 'vue-router';
   import { watch } from 'vue';
 import { useNewsStore } from '../stores/articles';
+  import { onBeforeMount } from "vue";
+
   
   export default {
-    name: 'Search',
+    name: 'Home',
     components: {
       ArticleList,
     },
     setup() {
-      const route = useRoute();
-      const news = useNewsStore();
-      let query = route.params.query;
-  
-      watch(() => route.params.query, async (newValue) => {
-        await news.searchArticles(newValue);
-      });
+      const newsStore = useNewsStore();
+
+      onBeforeMount( async () => {
+        await newsStore.fetchArticles();
+    })
   
       return {
-        query,
+        newsStore,
       };
     },
   };

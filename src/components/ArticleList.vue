@@ -1,39 +1,38 @@
 <template>
     <div class="articles">
-    <!-- <button @click="fetchArticles">Fetch Articles</button> -->
-    <div v-for="article in articles" :key="article.title">
-      <Article :article="article" :category="category" />
+    <div v-for="article in newsStore.articles.slice(0, 1)" :key="article.title">
+        <ArticleBig :article="article" />
+    
+    </div>
+
+    <div v-for="article in newsStore.articles.slice(2)" :key="article.title">
+      <Article :article="article" />
+      <!-- <Article :article="article" :category="category" /> -->
+
     </div>
 </div>
 </template>
 
 <script>
 import Article from './Article.vue';
+import ArticleBig from './ArticleBig.vue';
 import { useNewsStore } from '../stores/articles';
-import { onBeforeMount, ref } from "vue";
+// import { onBeforeMount, ref } from "vue";
 
 export default {
-//   name: 'articlelist',
   components: {
     Article
   },
-//   props: {
-//     articleList
-//   },
   setup() {
-    const articles = ref(null);
     const newsStore = useNewsStore();
+    // onBeforeMount( async () => {
 
-    onBeforeMount( async () => {
+    //     await newsStore.fetchArticles();
+    //     articles.value =  newsStore.articles;
 
-        // newsStore.fetchArticles();
-        articles.value = await newsStore.fetchArticles().articles;
-
-    })
-    // const articles = newsStore.articles; 
-
+    // })
     return {
-      articles,
+      newsStore,
     //   fetchArticles,
     };
     }

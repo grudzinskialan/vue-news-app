@@ -34,10 +34,7 @@ export default {
   <app-header></app-header>
   <br>
   <article-list></article-list>
-      <!-- <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav> -->
+
   <RouterView />
 </template>
 

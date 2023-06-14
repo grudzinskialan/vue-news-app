@@ -2,7 +2,7 @@
       <nav class="header">
         <div class="brand">
         <h1 class="brand__name">
-            Project news
+          <router-link to="/" class="router__link">Project news</router-link>
         </h1>
       <!-- <app-search></app-search> -->
     </div>
@@ -11,13 +11,13 @@
         <router-link to="/" class="router__link">World</router-link>
       </li>
       <li class="nav__link">
-        <router-link to="/category/local" class="router__link">Local</router-link>
+        <router-link to="/category/business" class="router__link">Business</router-link>
       </li>
       <li class="nav__link">
-        <router-link to="/category/culture" class="router__link">Culture</router-link>
+        <router-link to="/category/entertainment" class="router__link">entertainment</router-link>
       </li>
       <li class="nav__link">
-        <router-link to="/category/politics" class="router__link">Politics</router-link>
+        <router-link to="/category/general" class="router__link">general</router-link>
       </li>
       <li class="nav__link">
         <router-link to="/category/sports" class="router__link">Sports</router-link>
@@ -31,16 +31,16 @@
       <li class="nav__link">
         <router-link to="/category/health" class="router__link">Health</router-link>
       </li>
-      <li class="nav__link">
-        <router-link to="/category/style" class="router__link">Style</router-link>
-      </li>
-      <li class="nav__link">
-        <router-link to="/category/travel" class="router__link">Travel</router-link>
-      </li>
+      <!-- <li>
+        <div class="search-bar">
+        <input type="text" placeholder="Search for an article" v-model="searchTerm" @keydown.enter="search">
+      </div>
+      </li> -->
+
     </ul>
     <div class="search-bar">
-      <input type="text" v-model="searchTerm" @keydown.enter="search">
-      <button @click="search">Search</button>
+      <input type="text" placeholder="Search for an article" v-model="searchTerm" @keydown.enter="search">
+      <!-- <button @click="search">Search</button> -->
     </div>
   </nav>
 </template>
@@ -49,7 +49,7 @@
 // import AppSearch from './AppSearch.vue'
 
 export default {
-  name: 'appheader',
+  // name: 'appheader',
   data() {
     return {
       searchTerm: '',
